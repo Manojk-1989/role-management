@@ -35,7 +35,7 @@ class UserRoleBasedRouteProvier extends ServiceProvider
                 Route::prefix('v2')
                     ->middleware('api-user')
                     ->group(base_path('routes/api-user.php'));
-            } else {
+            } else if($request->header('site') === 'admin'){
                 Route::prefix('v2')
                     ->middleware('api-admin')
                     ->group(base_path('routes/api-admin.php'));
